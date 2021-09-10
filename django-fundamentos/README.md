@@ -3,9 +3,9 @@
 Este projeto foi desenvolvido no decorrer do curso de Django Fundamentos, da TreinaWEB.
 O Objetivo desse projeto era desenvolver o primeiro CRUD em Django.
 
-### Principais recursos
+### Principais objetivos
 
-* CRUD completo de clientes
+* criar um CRUD completo de clientes
 
 # Primeiros passos
 
