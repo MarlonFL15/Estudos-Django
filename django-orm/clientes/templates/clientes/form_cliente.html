@@ -12,37 +12,78 @@ Cadastro de usuário
          <!-- Cria um HASH que garante que os dados enviados sejam da nossa aplicação -->
          {% csrf_token %}
          <div class="form-group">
-             {{form.nome.errors}}
+             {{form_cliente.nome.errors}}
             <label>Nome: </label>
-            {{form.nome | addClass:'form-control'}}
+            {{form_cliente.nome | addClass:'form-control'}}
          </div>
 
          <div class="form-group">
-             {{form.sexo.errors}}
+             {{form_cliente.sexo.errors}}
             <label>Sexo: </label>
-            {{form.sexo | addClass:'form-control'}}
+            {{form_cliente.sexo | addClass:'form-control'}}
         </div>
 
          <div class="form-group">
-             {{form.data_nascimento.errors}}
+             {{form_cliente.data_nascimento.errors}}
             <label>Data de nascimento: </label>
-            {{form.data_nascimento | addClass:'form-control'}}
+            {{form_cliente.data_nascimento | addClass:'form-control'}}
         </div>
 
          <div class="form-group">
-             {{form.email.errors}}
+             {{form_cliente.email.errors}}
             <label>Email: </label>
-            {{form.email | addClass:'form-control'}}
+            {{form_cliente.email | addClass:'form-control'}}
         </div>
 
          <div class="form-group">
-             {{form.profissao.erros}}
+             {{form_cliente.profissao.erros}}
             <label>Profissão: </label>
-            {{form.profissao | addClass:'form-control'}}
+            {{form_cliente.profissao | addClass:'form-control'}}
          </div>
 
          <div class="form-group">
              <input class="btn btn-primary" type="submit" name="Cadastrar"></input>
          </div>
+
+         <hr>
+
+         <h4>Endereço</h4>
+
+         <div class="form-group">
+             {{form_endereco.rua.erros}}
+            <label>Rua: </label>
+            {{form_endereco.rua | addClass:'form-control'}}
+         </div>
+
+         <div class="form-group">
+             {{form_endereco.numero.erros}}
+            <label>Número: </label>
+            {{form_endereco.numero | addClass:'form-control'}}
+         </div>
+
+         <div class="form-group">
+             {{form_endereco.bairro.erros}}
+            <label>Bairro: </label>
+            {{form_endereco.bairro | addClass:'form-control'}}
+         </div>
+
+         <div class="form-group">
+             {{form_endereco.complemento.erros}}
+            <label>Complemento: </label>
+            {{form_endereco.complemento | addClass:'form-control'}}
+         </div>
+
+         <div class="form-group">
+             {{form_endereco.cidade.erros}}
+            <label>Cidade: </label>
+            {{form_endereco.bairro | addClass:'form-control'}}
+         </div>
+
+         <div class="form-group">
+             {{form_endereco.pais.erros}}
+            <label>Pais: </label>
+            {{form_endereco.pais | addClass:'form-control'}}
+         </div>
+
      </form>
 {% endblock content%}

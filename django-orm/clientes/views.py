@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import ClienteForm
+from .forms import ClienteForm, EnderecoForm
 from .models import Cliente
 from .entidades import cliente
 from .services import cliente_service
@@ -24,14 +24,14 @@ def inserir_cliente(request):
 
     #Verifica se a rota foi acionada com um método post (ou seja, se o formulário foi enviado)
     if request.method == "POST":
-        form = ClienteForm(request.POST) #recupera os dados enviados
+        form_cliente = ClienteForm(request.POST) #recupera os dados enviados
 
-        if form.is_valid(): #Com base na Classe ClienteForm, verifica se os campos enviados são válidos
-            nome = form.cleaned_data["nome"]
-            sexo = form.cleaned_data["sexo"]
-            data_nascimento = form.cleaned_data["data_nascimento"]
-            profissao = form.cleaned_data["profissao"]
-            email = form.cleaned_data["email"]
+        if form_cliente.is_valid(): #Com base na Classe ClienteForm, verifica se os campos enviados são válidos
+            nome = form_cliente.cleaned_data["nome"]
+            sexo = form_cliente.cleaned_data["sexo"]
+            data_nascimento = form_cliente.cleaned_data["data_nascimento"]
+            profissao = form_cliente.cleaned_data["profissao"]
+            email = form_cliente.cleaned_data["email"]
 
             cliente_novo = cliente.Cliente(nome=nome, sexo=sexo, data_nascimento=data_nascimento, profissao=profissao,
                                            email=email)
@@ -40,8 +40,9 @@ def inserir_cliente(request):
         #caso o formulário seja inválido, o objeto form vai guardar os erros em uma variável, e quando o form for renderizado,
         #os erros vão ser buscados nessas variáveis e serão mostrados na tela
     else:
-        form = ClienteForm()
-    return render(request, 'clientes/form_cliente.html', {'form':form})
+        form_cliente = ClienteForm()
+        form_endereco = EnderecoForm()
+    return render(request, 'clientes/form_cliente.html', {'form_cliente':form_cliente, 'form_endereco':form_endereco})
 
 #Método de listar cliente por id
 def listar_cliente_id(request, id):

@@ -1,6 +1,18 @@
 from django.db import models
 
 # Create your models here.
+
+class Endereco (models.Model):
+    rua = models.CharField(max_length = 200, null = False, blank = False)
+    numero = models.IntegerField(null=False, blank=False)
+    complemento = models.CharField(max_length=200, null=False, blank=False)
+    bairro = models.CharField(max_length=50, null=False, blank=False)
+    cidade = models.CharField(max_length=50, null=False, blank=False)
+    pais = models.CharField(max_length=50, null=False, blank=False)
+
+    def _str__(self):
+        return self.rua
+
 class Cliente (models.Model):
 
     choices = (
@@ -14,6 +26,7 @@ class Cliente (models.Model):
     email = models.EmailField(null=False, blank=False)
     profissao = models.CharField(max_length=100, null=False, blank=False)
     sexo = models.CharField(max_length=1, null=False, blank=False, choices=choices)
+    endereco = models.OneToOneField(Endereco, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.nome
