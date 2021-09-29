@@ -1,11 +1,11 @@
 {% extends "clientes/base.html" %}
 
-{% block titulo %}
+{% block title %}
 Lista de usuários
-{% endblock titulo %}
+{% endblock title %}
 
 
-{% block conteudo %}
+{% block content %}
     <table class="table">
         <thead>
             <tr>
@@ -35,4 +35,4 @@ Lista de usuários
     <a href="{% url 'inserir_clientes' %}">
         <button class="btn btn-primary">Cadastrar</button>
     </a>
-{% endblock conteudo%}
+{% endblock content%}

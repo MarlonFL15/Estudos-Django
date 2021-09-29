@@ -37,9 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_adminlte',
     'clientes', #nome da app que eu criei
-
+    'django_adminlte',
 ]
 
 MIDDLEWARE = [

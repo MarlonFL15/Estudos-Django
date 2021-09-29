@@ -1,12 +1,12 @@
 {% extends "clientes/base.html" %}
 {% load meus_filtros %}
 
-{% block titulo %}
+{% block title %}
 Cadastro de usuário
-{% endblock titulo %}
+{% endblock title %}
 
 
-{% block conteudo %}
+{% block content %}
      <form method="post">
 
          <!-- Cria um HASH que garante que os dados enviados sejam da nossa aplicação -->
@@ -45,4 +45,4 @@ Cadastro de usuário
              <input class="btn btn-primary" type="submit" name="Cadastrar"></input>
          </div>
      </form>
-{% endblock conteudo%}
+{% endblock content%}
