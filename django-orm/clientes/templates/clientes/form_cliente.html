@@ -41,9 +41,7 @@ Cadastro de usuário
             {{form_cliente.profissao | addClass:'form-control'}}
          </div>
 
-         <div class="form-group">
-             <input class="btn btn-primary" type="submit" name="Cadastrar"></input>
-         </div>
+
 
          <hr>
 
@@ -76,7 +74,7 @@ Cadastro de usuário
          <div class="form-group">
              {{form_endereco.cidade.erros}}
             <label>Cidade: </label>
-            {{form_endereco.bairro | addClass:'form-control'}}
+            {{form_endereco.cidade | addClass:'form-control'}}
          </div>
 
          <div class="form-group">
@@ -85,5 +83,9 @@ Cadastro de usuário
             {{form_endereco.pais | addClass:'form-control'}}
          </div>
 
+        <hr>
+         <div class="form-group">
+            <input class="btn btn-primary" type="submit" name="Cadastrar"></input>
+        </div>
      </form>
 {% endblock content%}
