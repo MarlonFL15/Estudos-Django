@@ -2,10 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import ClienteForm, EnderecoForm
-from .models import Cliente
-from .entidades import cliente, endereco
-from .services import cliente_service, endereco_service
+from ..forms import cliente_form, endereco_form
+from ..models import Cliente
+from ..entidades import cliente, endereco
+from ..services import cliente_service, endereco_service
 
 # Create your views here.
 
@@ -24,8 +24,8 @@ def inserir_cliente(request):
 
     #Verifica se a rota foi acionada com um método post (ou seja, se o formulário foi enviado)
     if request.method == "POST":
-        form_cliente = ClienteForm(request.POST) #recupera os dados enviados
-        form_endereco = EnderecoForm(request.POST)
+        form_cliente = cliente_form.ClienteForm(request.POST) #recupera os dados enviados
+        form_endereco = endereco_form.EnderecoForm(request.POST)
 
         if form_cliente.is_valid(): #Com base na Classe ClienteForm, verifica se os campos enviados são válidos
             nome = form_cliente.cleaned_data["nome"]
@@ -55,8 +55,8 @@ def inserir_cliente(request):
             #caso o formulário seja inválido, o objeto form vai guardar os erros em uma variável, e quando o form for renderizado,
         #os erros vão ser buscados nessas variáveis e serão mostrados na tela
     else:
-        form_cliente = ClienteForm()
-        form_endereco = EnderecoForm()
+        form_cliente = cliente_form.ClienteForm()
+        form_endereco = endereco_form.EnderecoForm()
     return render(request, 'clientes/form_cliente.html', {'form_cliente':form_cliente, 'form_endereco':form_endereco})
 
 #Método de listar cliente por id
@@ -69,12 +69,12 @@ def editar_cliente(request, id):
     cliente_antigo = cliente_service.lista_lientes_id(id)
 
     if cliente_antigo.endereco == None:
-        form_endereco = EnderecoForm(request.POST or None)
+        form_endereco = cliente_form.EnderecoForm(request.POST or None)
     else:
         endereco_antigo = endereco_service.listar_endereco_id(cliente_antigo.endereco.id)
-        form_endereco = EnderecoForm(request.POST or None, instance=endereco_antigo)
+        form_endereco = endereco_form.EnderecoForm(request.POST or None, instance=endereco_antigo)
         
-    form_cliente = ClienteForm(request.POST or None, instance=cliente_antigo)
+    form_cliente = cliente_form.ClienteForm(request.POST or None, instance=cliente_antigo)
     
 
     if form_cliente.is_valid():

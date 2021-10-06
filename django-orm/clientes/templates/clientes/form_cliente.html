@@ -1,4 +1,4 @@
-{% extends "clientes/base.html" %}
+{% extends "base.html" %}
 {% load meus_filtros %}
 
 {% block title %}
@@ -40,9 +40,6 @@ Cadastro de usuário
             <label>Profissão: </label>
             {{form_cliente.profissao | addClass:'form-control'}}
          </div>
-
-
-
          <hr>
 
          <h4>Endereço</h4>
