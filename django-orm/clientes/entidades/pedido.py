@@ -12,7 +12,7 @@ class Pedido():
         return self._cliente
 
     @cliente.setter
-    def rua(self, cliente):
+    def cliente(self, cliente):
         self._cliente = cliente
 
     @property
