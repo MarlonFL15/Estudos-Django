@@ -2,6 +2,7 @@ from django.urls import path
 
 from .views.cliente_views import *
 from .views.pedido_views import *
+from .views.produto_views import *
 #objetos que contém a rota, o método view correspondente e o "apelido" da rota
 urlpatterns = [
     path('/listar_clientes', listar_clientes, name='listar_clientes'),
@@ -13,4 +14,6 @@ urlpatterns = [
     path('/listar_pedidos', listar_pedidos, name='listar_pedidos'),
     path('/listar_pedido/<int:id>', listar_pedido_id, name='listar_pedido_id'),
     path('/editar_pedidos/<int:id>', editar_pedido, name='editar_pedido'),
+    path('/inserir_produto', inserir_produto, name='inserir_produto'),
+    path('/listar_produtos', listar_produtos, name='listar_produtos')
 ]

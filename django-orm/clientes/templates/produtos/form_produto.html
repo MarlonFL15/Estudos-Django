@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>alo</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% load meus_filtros %}
+ 
+{% block title %}
+    Inserir Produto
+{% endblock title %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ form_produto.nome.errors }}
+            <label>Nome</label>
+            {{form_produto.nome | addClass:'form-control'}}
+        </div>
+        <div class="form-group">
+            {{ form_produto.descricao.errors }}
+            <label>Descrição</label>
+            {{form_produto.descricao | addClass:'form-control'}}
+        </div>
+        <div class="form-group">
+            {{ form_produto.valor.errors }}
+            <label>Valor</label>
+            {{form_produto.valor | addClass:'form-control'}}
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" name="Cadastrar"></input>
+        </div>
+    </form>
+{% endblock content %}
