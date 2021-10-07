@@ -11,7 +11,7 @@ def cadastrar_pedido(pedido):
         pedido_bd.produtos.add(produto)
     
 def listar_pedidos():
-    return Pedido.objects.all()
+    return Pedido.objects.select_related('cliente').all()
 
 def listar_pedido_id(id):
     return Pedido.objects.get(id=id)
