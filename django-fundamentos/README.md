@@ -1,11 +1,17 @@
 # Introdução
 
 Este projeto foi desenvolvido no decorrer do curso de Django Fundamentos, da TreinaWEB.
-O Objetivo desse projeto era desenvolver o primeiro CRUD em Django.
+O Objetivo desse curso era ter o primeiro contato com o django, aprender como implementar uma aplicação com acesso ao banco de dados com validações tanto no Back-end quanto no Front-end. 
 
-### Principais objetivos
+### Principais objetivos do curso
 
-* criar um CRUD completo de clientes
+* O que é o Django e como funciona sua arquitetura;
+* Como instalar o Django utilizando o PIP em qualquer sistema operacional;
+* Como funciona cada uma das camadas da arquitetura do Django;
+* Como criar filtros para melhorar a listagem dos dados;
+* Como trabalhar com bancos de dados em aplicações Django;
+* Como traduzir a aplicação desenvolvida para o português do Brasil;
+* Como o Django trata alguns dos principais problemas de segurança presentes em aplicações web.
 
 # Primeiros passos
 
