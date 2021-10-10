@@ -3,7 +3,7 @@
 Este projeto foi desenvolvido no decorrer do curso de Django Fundamentos, da TreinaWEB.
 O Objetivo desse curso era ter o primeiro contato com o django, aprender como implementar uma aplicação com acesso ao banco de dados com validações tanto no Back-end quanto no Front-end. 
 
-### Principais objetivos do curso
+### Conhecimentos adquiridos
 
 * O que é o Django e como funciona sua arquitetura;
 * Como instalar o Django utilizando o PIP em qualquer sistema operacional;
