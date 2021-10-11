@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 
 from ..forms import cliente_form, endereco_form
@@ -13,6 +14,7 @@ from ..services import cliente_service, endereco_service
 # todo método recebe uma request e também retorna uma request
 # Método de listar todos os clientes
 
+@cache_page(10)
 def listar_clientes(request):
     clientes = cliente_service.lista_lientes()
     return render(request, 'clientes/lista_clientes.html', {'clientes':clientes})
