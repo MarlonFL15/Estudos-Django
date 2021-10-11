@@ -16,6 +16,11 @@ Cadastro de usuário
             <label>Nome: </label>
             {{form_cliente.nome | addClass:'form-control'}}
          </div>
+         <div class="form-group">
+             {{form_cliente.sobrenome.errors}}
+            <label>Sobrenome: </label>
+            {{form_cliente.sobrenome | addClass:'form-control'}}
+         </div>
 
          <div class="form-group">
              {{form_cliente.sexo.errors}}

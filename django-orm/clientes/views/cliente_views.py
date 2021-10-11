@@ -33,7 +33,7 @@ def inserir_cliente(request):
             data_nascimento = form_cliente.cleaned_data["data_nascimento"]
             profissao = form_cliente.cleaned_data["profissao"]
             email = form_cliente.cleaned_data["email"]
-
+            sobrenome = form_cliente.cleaned_data["sobrenome"]
         
             if form_endereco.is_valid():
                 rua = form_endereco.cleaned_data["rua"]
@@ -48,7 +48,7 @@ def inserir_cliente(request):
                 endereco_bd = endereco_service.cadastrar_endereco(endereco_novo)
 
                 cliente_novo = cliente.Cliente(nome=nome, sexo=sexo, data_nascimento=data_nascimento, profissao=profissao,
-                                            email=email, endereco=endereco_bd)
+                                            email=email, endereco=endereco_bd, sobrenome=sobrenome)
                 cliente_service.cadastrar_cliente(cliente_novo)
                 return redirect('listar_clientes')
             
@@ -69,7 +69,7 @@ def editar_cliente(request, id):
     cliente_antigo = cliente_service.lista_lientes_id(id)
 
     if cliente_antigo.endereco == None:
-        form_endereco = cliente_form.EnderecoForm(request.POST or None)
+        form_endereco = endereco_form.EnderecoForm(request.POST or None)
     else:
         endereco_antigo = endereco_service.listar_endereco_id(cliente_antigo.endereco.id)
         form_endereco = endereco_form.EnderecoForm(request.POST or None, instance=endereco_antigo)
@@ -83,6 +83,7 @@ def editar_cliente(request, id):
         data_nascimento = form_cliente.cleaned_data["data_nascimento"]
         profissao = form_cliente.cleaned_data["profissao"]
         email = form_cliente.cleaned_data["email"]
+        sobrenome = form_cliente.cleaned_data["sobrenome"]
 
         if form_endereco.is_valid():
             rua = form_endereco.cleaned_data["rua"]
@@ -97,12 +98,12 @@ def editar_cliente(request, id):
             if cliente_antigo.endereco == None:
                 endereco_bd = endereco_service.cadastrar_endereco(endereco_novo)
                 cliente_novo = cliente.Cliente(nome=nome, sexo=sexo, data_nascimento=data_nascimento, profissao=profissao,
-                                            email=email, endereco=endereco_bd)
+                                            email=email, endereco=endereco_bd, sobrenome=sobrenome)
             else:            
                 endereco_service.editar_endereco(endereco_antigo, endereco_novo)
 
                 cliente_novo = cliente.Cliente(nome=nome, sexo=sexo, data_nascimento=data_nascimento, profissao=profissao,
-                                            email=email, endereco=endereco_antigo)
+                                            email=email, endereco=endereco_antigo, sobrenome=sobrenome)
             cliente_service.editar_cliente(cliente_antigo, cliente_novo)
             return redirect('listar_clientes')
     return render(request, 'clientes/form_cliente.html', {'form_cliente':form_cliente, 'form_endereco':form_endereco})
