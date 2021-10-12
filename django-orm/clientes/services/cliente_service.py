@@ -1,6 +1,12 @@
 from ..models import Cliente, Endereco
 
 def lista_lientes():
+    #Lista todos os clientes do sexo feminino que nasceram depois de 01/01/1990
+    #clientes = Cliente.objects.filter(sexo='F', data_nascimento__gt= '1990-01-01').all()
+
+    #Lista todos os clientes, menos os que são do sexo feminino e que nasceram depois de 01/01/1990
+    #clientes = Cliente.objects.exclude(sexo='F', data_nascimento__gt='1990-01-01')
+
     return Cliente.objects.all()
 
 def lista_lientes_id(id):

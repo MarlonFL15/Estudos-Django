@@ -58,6 +58,11 @@ class Cliente (models.Model):
         ("N", "Nenhuma das opções")
     )
 
+
+    class Meta:
+        db_table = "cliente_sistema" #Para alterar o nome da tabela no banco de dados
+        ordering = ['-data_nascimento'] #Para ordenar na hora de fazer a consulta
+
     nome = models.CharField(max_length = 100, null=False, blank=False)
     sobrenome = models.CharField(max_length=30, null=True)
     data_nascimento = models.DateField(null=False, blank=False)
@@ -68,3 +73,8 @@ class Cliente (models.Model):
 
     def __str__(self):
         return self.nome
+
+class Funcionario(models.Model):
+    #Especifica o nome da chave primária
+    id_funcionario = models.AutoField(primary_key = True)
+    nome = models.CharField(max_length=100, null=False, blank=False)
