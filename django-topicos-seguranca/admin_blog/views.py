@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .services import post_service
 from .forms import post_form
 from .entidades.post import Post
+
 # Create your views here.
 
 def listar_posts(request):

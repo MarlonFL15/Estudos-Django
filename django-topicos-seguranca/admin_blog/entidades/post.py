@@ -5,6 +5,7 @@ class Post():
         self.__conteudo = conteudo
         self.__categoria = categoria
 
+
     @property
     def titulo(self):
         return self.__titulo
@@ -36,3 +37,4 @@ class Post():
     @categoria.setter
     def categoria(self, categoria):
         self.__categoria = categoria
+

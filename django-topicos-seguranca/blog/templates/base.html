@@ -39,12 +39,23 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Admin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">{{request.user.username}}</a>
-          </li>
+
+          {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'admin_blog:listar_posts' %}">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{request.user.nome}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout_usuario' %}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logar_usuario' %}">Login</a>
+            </li>
+          {% endif %}
+
         </ul>
       </div>
     </div>
