@@ -6,9 +6,9 @@ from .manager import UsuarioManager
 
 class Usuario(AbstractBaseUser):
     objects = UsuarioManager()
-    nome = models.CharField(max_length=100, null=False, blank=False)
+    nome = models.CharField(max_length=100, null=True, blank=False)
     email = models.EmailField(unique=True, max_length=30, null=False, blank=False)
-    pais_origem = models.CharField(max_length=100, null=False, blank=False)
+    pais_origem = models.CharField(max_length=100, null=True, blank=False)
 
     USERNAME_FIELD = 'email' #campo utilizado ao invés de "username" para fazer o login
     REQUIRED_FIELDS = ['nome', 'pais_origem']

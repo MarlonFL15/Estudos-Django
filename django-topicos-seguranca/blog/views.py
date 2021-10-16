@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from admin_blog.services import post_service, comentario_service, usuario_service
-from admin_blog.forms import comentario_form, usuario_form, login_form
+from admin_blog.forms import comentario_form, usuario_form, login_form, perfil_form
 from admin_blog.entidades.comentario import Comentario
 from admin_blog.entidades.usuario import Usuario
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
@@ -76,6 +76,19 @@ def logar_usuario(request):
 def logout_usuario(request):
     logout(request)
     return redirect('home')
+
+@login_required
+def perfil_usuario(request):
+    if request.method == "POST":
+        form_usuario = perfil_form.FormPerfil(request.POST, instance = request.user)
+
+        if form_usuario.is_valid():
+            form_usuario.save()
+            return redirect('home')
+    else:
+        form_usuario = perfil_form.FormPerfil(instance=request.user)
+
+    return render(request, 'usuario/perfil.html', {'form_usuario': form_usuario})
 
 @login_required
 def alterar_senha(request):
