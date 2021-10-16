@@ -1,7 +1,7 @@
 # Introdução
 
 Este projeto foi desenvolvido no decorrer dos cursos de Banco de dados com Django ORM (parte 1 e 2), da TreinaWEB.
-O Objetivo desses curso era aprender como trabalhar com diferentes tipos de relacionamento, e estudar mais detalhadamente sobre como funciona o Django ORM.
+O Objetivo desses cursos era aprender como trabalhar com diferentes tipos de relacionamento, e estudar mais detalhadamente sobre como funciona o Django ORM.
 
 ### Conhecimentos adquiridos
 
