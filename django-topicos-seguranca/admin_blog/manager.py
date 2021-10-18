@@ -14,3 +14,15 @@ class UsuarioManager(BaseUserManager):
         usuario.set_password(password)
         usuario.save()
         return usuario
+
+    def create_superuser(self, nome, pais_origem, email, password):
+        usuario = self.create_user(
+            email = email,
+            nome = nome,
+            pais_origem = pais_origem,
+        )
+
+        usuario.is_superuser = True
+        usuario.set_password(password)
+        usuario.save()
+        return usuario

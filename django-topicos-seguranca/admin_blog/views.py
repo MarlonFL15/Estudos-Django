@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from .services import post_service
 from .forms import post_form
 from .entidades.post import Post
-
+from django.contrib.auth.decorators import user_passes_test
 # Create your views here.
 
+@user_passes_test(lambda u: u.is_superuser)
 def listar_posts(request):
     posts = post_service.listar_posts()
     return render(request, 'admin_blog/posts.html', {'posts': posts})
+
 
 def cadastrar_post(request):
     if request.method == "POST":
