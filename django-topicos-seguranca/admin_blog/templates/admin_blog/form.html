@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
         {{form_post.titulo.errors}}
@@ -28,6 +28,12 @@
         {{form_post.categoria.errors}}
         <label>Categoria: </label>
         {{ form_post.categoria|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{form_post.capa.errors}}
+        <label>Capa: </label>
+        {{ form_post.capa|addclass:'form-control' }}
     </div>
     <div class="form-group">
         <input type="submit" value="Cadastrar" class="btn btn-primary">

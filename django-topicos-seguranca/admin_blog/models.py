@@ -30,6 +30,7 @@ class Post(models.Model):
     categoria = models.ForeignKey('Categoria', on_delete=models.CASCADE)
     data_cadastro = models.DateField(auto_now_add=True)
     data_edicao = models.DateField(auto_now=True)
+    capa = models.ImageField(null = True, upload_to = 'artigos/')
 
     def __str__(self):
         return self.titulo

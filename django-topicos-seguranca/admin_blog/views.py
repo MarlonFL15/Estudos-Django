@@ -13,13 +13,14 @@ def listar_posts(request):
 
 def cadastrar_post(request):
     if request.method == "POST":
-        form_post = post_form.PostForm(request.POST)
+        form_post = post_form.PostForm(request.POST, request.FILES)
         if form_post.is_valid():
             titulo = form_post.cleaned_data["titulo"]
             descricao = form_post.cleaned_data["descricao"]
             conteudo = form_post.cleaned_data["conteudo"]
             categoria = form_post.cleaned_data["categoria"]
-            post_novo = Post(titulo=titulo, descricao=descricao, conteudo=conteudo, categoria=categoria)
+            capa = form_post.cleaned_data["capa"]
+            post_novo = Post(titulo=titulo, descricao=descricao, conteudo=conteudo, categoria=categoria, capa=capa)
             post_service.cadastrar_post(post_novo)
             return redirect('home')
     else:
@@ -35,7 +36,8 @@ def editar_post(request, id):
             descricao = form_post.cleaned_data["descricao"]
             conteudo = form_post.cleaned_data["conteudo"]
             categoria = form_post.cleaned_data["categoria"]
-            post_novo = Post(titulo=titulo, descricao=descricao, conteudo=conteudo, categoria=categoria)
+            capa = form_post.cleaned_data["capa"]
+            post_novo = Post(titulo=titulo, descricao=descricao, conteudo=conteudo, categoria=categoria, capa=capa)
             post_service.editar_post(post_antigo, post_novo)
             return redirect('home')
     return render(request, 'admin_blog/form.html', {'form_post': form_post})

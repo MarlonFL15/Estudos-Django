@@ -1,10 +1,10 @@
 class Post():
-    def __init__(self, titulo, descricao, conteudo, categoria):
+    def __init__(self, titulo, descricao, conteudo, categoria, capa):
         self.__titulo = titulo
         self.__descricao = descricao
         self.__conteudo = conteudo
         self.__categoria = categoria
-
+        self.__capa = capa
 
     @property
     def titulo(self):
@@ -38,3 +38,10 @@ class Post():
     def categoria(self, categoria):
         self.__categoria = categoria
 
+    @property
+    def capa(self):
+        return self.__capa
+
+    @capa.setter
+    def capa(self, capa):
+        self.__capa = capa
