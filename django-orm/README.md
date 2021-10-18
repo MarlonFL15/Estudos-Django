@@ -1,7 +1,7 @@
 # Introdução
 
-Este projeto foi desenvolvido no decorrer do curso de Banco de dados com Django ORM, da TreinaWEB.
-O Objetivo desse curso era aprender como trabalhar com diferentes tipos de relacionamento, e estudar mais detalhadamente sobre como funciona o Django ORM.
+Este projeto foi desenvolvido no decorrer dos cursos de Banco de dados com Django ORM (parte 1 e 2), da TreinaWEB.
+O Objetivo desses cursos era aprender como trabalhar com diferentes tipos de relacionamento, e estudar mais detalhadamente sobre como funciona o Django ORM.
 
 ### Conhecimentos adquiridos
 
@@ -11,6 +11,11 @@ O Objetivo desse curso era aprender como trabalhar com diferentes tipos de relac
 * Como otimizar consultas entre relações com Django;
 * Como desfazer migrações no Django;
 * Como mapear BDs legados com o Django ORM de forma automática.
+* Como manipular bases de dados e gerar dados fakes para testes;
+* Como configurar e utilizar Cache em projetos Django;
+* Personalizar artefatos do BD com Django;
+* Trabalhar com diferentes tipos de bancos de dados;
+* Utilizar vários bancos de dados ao mesmo tempo em projetos Django.
 
 # Primeiros passos
 
@@ -18,6 +23,7 @@ O Objetivo desse curso era aprender como trabalhar com diferentes tipos de relac
 
 * Python 3 e Django instalados
 * MySQL
+* Redis (para utilização de cache)
 
 Abra o diretório do projeto e aplique as migrações:
 
