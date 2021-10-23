@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Tecnologia(models.Model):
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    nome = models.CharField(max_length=100, null=False, blank=False)
 
     def __str__(self):
         return self.nome
@@ -21,7 +21,7 @@ class Vaga(models.Model):
     quantidade = models.IntegerField(null=False, blank=False)
     contato = models.EmailField(null=False, blank=False)
     tipo_contrataco = models.CharField(max_length=3, null=False, blank=False, choices=CONTRATO_CHOICES)
-    tecnologias=  models.ManyToManyField(Tecnologia)
+    tecnologias = models.ManyToManyField(Tecnologia)
 
     def __str__(self):
         return self.titulo
