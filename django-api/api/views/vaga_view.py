@@ -1,4 +1,5 @@
 from rest_framework import status
+from rest_framework.pagination import LimitOffsetPagination, PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from ..services import vaga_service
@@ -7,8 +8,12 @@ from ..entidades import vaga
 
 class VagaList(APIView):
     def get(self, request, format=None):
+        paginacao = PageNumberPagination()
         vagas = vaga_service.listar_vagas()
-        serializer = vaga_serializer.VagaSerializer(vagas,many=True) #converte a lista de tecnologias com o serializer
+
+        resultado = paginacao.paginate_queryset(vagas, request)
+        serializer = vaga_serializer.VagaSerializer(resultado, many=True)
+        return paginacao.get_paginated_response(serializer.data, )
         return Response(serializer.data, status.HTTP_200_OK)
 
     def post(self, request, format=None):
