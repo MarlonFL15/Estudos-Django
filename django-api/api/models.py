@@ -20,7 +20,7 @@ class Vaga(models.Model):
     local = models.CharField(max_length=50, null=False, blank=False)
     quantidade = models.IntegerField(null=False, blank=False)
     contato = models.EmailField(null=False, blank=False)
-    tipo_contrataco = models.CharField(max_length=3, null=False, blank=False, choices=CONTRATO_CHOICES)
+    tipo_contratacao = models.CharField(max_length=3, null=False, blank=False, choices=CONTRATO_CHOICES)
     tecnologias = models.ManyToManyField(Tecnologia)
 
     def __str__(self):
