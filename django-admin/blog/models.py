@@ -9,6 +9,8 @@ class Autor(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        verbose_name_plural = 'Autores'
 class Post(models.Model):
     titulo = models.CharField(max_length=70, null=False, blank=False)
     descricao = models.TextField(null=False, blank=False)
