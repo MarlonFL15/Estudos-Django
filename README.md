@@ -1,6 +1,6 @@
 # Estudos-Django
 
-<p> Repositório criado para organizar meus estudos e projetos desenvolvidos no decorrer de cursos </p>
+<p> Repositório criado para organizar meus estudos e projetos desenvolvidos no decorrer de cursos de django. </p>
 
 <h4> Projetos realizados </h4>
 
