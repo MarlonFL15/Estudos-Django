@@ -16,6 +16,14 @@
  <li>
     <a href="https://github.com/MarlonFL15/Estudos-Django/tree/master/django-orm">Utilizando recursos do Django ORM </a>  
  </li>
-
+ <li>
+    <a href="https://github.com/MarlonFL15/Estudos-Django/tree/master/django-topicos-seguranca">Autenticação de usuários e tópicos de segurança</a>  
+ </li>
+ <li>
+    <a href="https://github.com/MarlonFL15/Estudos-Django/tree/master/django-api">Criando a primeira API com o Django REST Framework</a>  
+ </li>
+ <li>
+    <a href="https://github.com/MarlonFL15/Estudos-Django/tree/master/django-admin">Utilizando recursos do módulo de ADMIN</a>  
+ </li>
 </ul>
 
