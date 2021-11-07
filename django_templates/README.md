@@ -1,7 +1,7 @@
 # Introdução
 
-Este projeto foi desenvolvido no decorrer do curso de Django Templates, da TreinaWEB.
-O Objetivo desse curso era mostrar como o sistema de templates do django funciona e como usá-los da melhor forma possível.
+Esse projeto foi desenvolvido no decorrer do curso de `Django Templates`, da [TreinaWeb](https://www.treinaweb.com.br/).
+O Objetivo desse curso era aprender como o sistema de templates do django funciona e como usá-los da melhor forma possível.
 
 ### Conhecimentos adquiridos
 
@@ -12,12 +12,19 @@ O Objetivo desse curso era mostrar como o sistema de templates do django funcion
 * Como utilizar sub-templates em um projeto Django;
 * Como aplicar a internacionalização em projetos Django.
 
-# Primeiros passos
+# Instalação e configuração
 
 ### Dependências
 
-* Python 3 e Django instalados
-    
-Execute o servidor de desenvolvimento:
+* Python 3
+
+Dentro do diretório do projeto, baixe todas as bibliotecas necessárias:
+
+    $ pip install -r requirements.txt
+
+
+Após isso, é só realizar as migrações e iniciar o servidor:
+
+    $ python manage.py migrate
 
     $ python manage.py runserver

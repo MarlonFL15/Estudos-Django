@@ -1,7 +1,7 @@
 # Introdução
 
-Este projeto foi desenvolvido no decorrer do curso de Django Fundamentos, da TreinaWEB.
-O Objetivo desse curso era ter o primeiro contato com o django, aprender como implementar uma aplicação com acesso ao banco de dados com validações tanto no Back-end quanto no Front-end. 
+Esse projeto foi desenvolvido no decorrer do curso de `Django Fundamentos`, da [TreinaWeb](https://www.treinaweb.com.br/).
+O Objetivo desse curso era ter o primeiro contato com o django, aprender como implementar uma aplicação com acesso ao banco de dados com validações tanto no Back-end quanto no Front-end.
 
 ### Conhecimentos adquiridos
 
@@ -13,17 +13,34 @@ O Objetivo desse curso era ter o primeiro contato com o django, aprender como im
 * Como traduzir a aplicação desenvolvida para o português do Brasil;
 * Como o Django trata alguns dos principais problemas de segurança presentes em aplicações web.
 
-# Primeiros passos
+# Instalação e configuração
 
 ### Dependências
 
-* Python 3 e Django instalados
+* Python 3
 * MySQL
 
-Abra o diretório do projeto e aplique as migrações:
+Dentro do diretório do projeto, baixe todas as bibliotecas necessárias:
+
+    $ pip install -r requirements.txt
+
+Após baixar as dependências, vá a até o arquivo `settings.py` na pasta `tw_clientes`. Você precisa fazer toda a configuração do seu banco de dados nas seguintes linhas:
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tw_django_fundamentos',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306'
+    }
+}
+```
+
+Após isso, é só realizar as migrações e iniciar o servidor:
 
     $ python manage.py migrate
-    
-Execute o servidor de desenvolvimento:
 
     $ python manage.py runserver

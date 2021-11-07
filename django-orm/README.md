@@ -1,6 +1,6 @@
 # Introdução
 
-Este projeto foi desenvolvido no decorrer dos cursos de Banco de dados com Django ORM (parte 1 e 2), da TreinaWEB.
+Esse projeto foi desenvolvido no decorrer dos cursos de `Banco de dados com Django ORM (parte 1 e 2)`, da [TreinaWeb](https://www.treinaweb.com.br/).
 O Objetivo desses cursos era aprender como trabalhar com diferentes tipos de relacionamento, e estudar mais detalhadamente sobre como funciona o Django ORM.
 
 ### Conhecimentos adquiridos
@@ -17,18 +17,35 @@ O Objetivo desses cursos era aprender como trabalhar com diferentes tipos de rel
 * Trabalhar com diferentes tipos de bancos de dados;
 * Utilizar vários bancos de dados ao mesmo tempo em projetos Django.
 
-# Primeiros passos
+# Instalação e configuração
 
 ### Dependências
 
-* Python 3 e Django instalados
+* Python 3
 * MySQL
-* Redis (para utilização de cache)
+* Redis em execução
 
-Abra o diretório do projeto e aplique as migrações:
+Dentro do diretório do projeto, baixe todas as bibliotecas necessárias:
+
+    $ pip install -r requirements.txt
+
+Após baixar as dependências, vá a até o arquivo `settings.py` na pasta `tw_clientes`. Você precisa fazer toda a configuração do seu banco de dados nas seguintes linhas:
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tw_django_fundamentos',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306'
+    }
+}
+```
+
+Após isso, é só realizar as migrações e iniciar o servidor:
 
     $ python manage.py migrate
-    
-Execute o servidor de desenvolvimento:
 
     $ python manage.py runserver
